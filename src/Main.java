@@ -4,7 +4,12 @@ import static java.lang.System.out;
 
 public class Main {
 
+    /**
+     * Main method that takes a user entered value as an index in the fibonacci sequence and returns the value
+     * @param args an array of command-line arguments for the application
+     */
     public static void main(String[] args) {
+
         // Scanner Object
         Scanner input = new Scanner(System.in);
 
@@ -12,6 +17,7 @@ public class Main {
         boolean run = true;
 
         while (run) {
+
             // User Input
             out.println("Nth term in Fibonacci Sequence");
             out.println("Please enter an integer: ");
@@ -42,7 +48,11 @@ public class Main {
 
     }
 
-    // Method to return correct ordinal number suffix
+    /**
+     * Method to return correct ordinal number suffix
+     * @param n = String value entered by user
+     * @return  returns correct ordinal suffix for n value entered by user
+     */
     static String getOrdinal(String n) {
 
         // Condition to check if n is in range 10 - 19
@@ -59,7 +69,12 @@ public class Main {
         };
     }
 
-    // Recursive fibonacci method that returns value at nth term in the sequence
+
+    /**
+     * Recursive fibonacci method that returns value at nth term in the sequence
+     * @param n = Value entered by user
+     * @return  the nth value in fibonacci sequence entered by user
+     */
     static int fibonacci(int n) {
         // Base case to return if value is less than 1
         if (n <= 1) return n;
@@ -68,7 +83,10 @@ public class Main {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
-    // Print method
+    /**
+     * Prints fibonacci sequence up until value entered by user
+     * @param n = Value entered by user
+     */
     static void printFibonacci(int n) {
         out.print("Fibonacci Sequence: ");
         for (int i = 0; i <= n; i++) {
