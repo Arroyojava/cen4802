@@ -1,3 +1,5 @@
+package Fibonacci;
+
 import static java.lang.System.out;
 
 public final class Fibonacci {
@@ -14,7 +16,7 @@ public final class Fibonacci {
      * @param n = String value entered by user
      * @return returns correct ordinal suffix for n value entered by user
      */
-    static String getOrdinal(String n) {
+    public static String getOrdinal(String n) {
 
         // Condition to check if n is in range 10 - 19
         if (n.length() > 1 && n.charAt(n.length() - 2) == '1') {
@@ -37,7 +39,13 @@ public final class Fibonacci {
      * @param n = Value entered by user
      * @return the nth value in fibonacci sequence entered by user
      */
-    static int fibonacci(int n) {
+    public static int fibonacci(int n) {
+
+        // Check that integer is not negative
+        if (n < 0) {
+            throw new FibonacciException("Input must be a non-negative integer.");
+        }
+
         // Base case to return if value is less than 1
         if (n <= 1) return n;
 
@@ -50,9 +58,9 @@ public final class Fibonacci {
      *
      * @param n = Value entered by user
      */
-    static void printFibonacci(int n) {
-        out.print("Fibonacci Sequence: ");
-        for (int i = 0; i <= n; i++) {
+    static public void printFibonacci(int n) {
+        out.print("Fibonacci.Fibonacci Sequence: ");
+        for (int i = 1; i <= n; i++) {
             out.print(fibonacci(i) + " ");
         }
     }

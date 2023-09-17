@@ -1,11 +1,15 @@
+import Fibonacci.Fibonacci;
+import Fibonacci.FibonacciException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 class FibonacciTest {
 
-
+    /**
+     * Test inputs are returning the expected ordinal
+     */
     @Test
     void getOrdinal() {
         assertAll(
@@ -17,6 +21,9 @@ class FibonacciTest {
         );
     }
 
+    /**
+     * Test inputs are returning the expected value
+     */
     @Test
     void fibonacci() {
         assertAll(
@@ -27,7 +34,19 @@ class FibonacciTest {
                 () -> assertEquals(8, Fibonacci.fibonacci(6))
         );
 
-
     }
 
+    /**
+     * Test negative inputs in the fibonacci method
+     */
+    @Test
+    void testFibonacciNegativeNumber(){
+        FibonacciException exception = assertThrows(FibonacciException.class,
+                () -> Fibonacci.fibonacci(-1));
+        assertEquals("Input must be a non-negative integer.", exception.getMessage());
+    }
+
+
 }
+
+
