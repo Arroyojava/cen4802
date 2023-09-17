@@ -1,3 +1,6 @@
+import Fibonacci.Fibonacci;
+import Fibonacci.FibonacciException;
+
 import java.util.Scanner;
 
 import static java.lang.System.out;
@@ -21,7 +24,7 @@ public class Main {
         while (run) {
 
             // User Input
-            out.println("Nth term in Fibonacci Sequence");
+            out.println("Nth term in Fibonacci.Fibonacci Sequence");
             out.println("Please enter an integer: ");
             String input = scanner.next();
 
@@ -30,23 +33,23 @@ public class Main {
                 // Parse input string into integer and verify input is an integer
                 int n = Integer.parseInt(input);
 
-                // Check that integer is not negative
-                if (n < 0) {
-                    throw new IllegalArgumentException();
-                }
-
                 // Call fibonacci method to return value at given term in sequence
                 int nthNumber = Fibonacci.fibonacci(n);
 
-                // Print Fibonacci sequence until nth term
+                // Print Fibonacci.Fibonacci sequence until nth term
                 Fibonacci.printFibonacci(n);
 
                 // String containing ordinal number and value at fib sequence
-                String output = "\nThe %s%s term of the Fibonacci sequence is %s.".formatted(n, Fibonacci.getOrdinal(input), nthNumber);
+                String output = "\nThe %s%s term of the Fibonacci.Fibonacci sequence is %s."
+                        .formatted(n, Fibonacci.getOrdinal(input), nthNumber);
                 out.println(output);
 
-            } catch (IllegalArgumentException ex) {
-                out.println("You must enter a positive integer.");
+            } catch (FibonacciException | NumberFormatException ex) {
+                if (ex.getMessage().contains("For")) {
+                    out.println("Error: Input cannot be a letter or special character.");
+                } else {
+                    out.println("Error: " + ex.getMessage());
+                }
 
             } finally {
 
